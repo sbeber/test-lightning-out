@@ -5,8 +5,8 @@ $("#sandBtn").click(sandLogin);
 var apiVersion = 'v37.0',
     clientId = '3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
     loginUrl = 'https://login.salesforce.com/',
-    redirectURI = "http://localhost:8080/oauthcallback.html",
-    proxyURL = 'http://localhost:8080/proxy/' ;
+    redirectURI = "https://test-lightning-out.herokuapp.com//oauthcallback.html",
+    proxyURL = 'https://test-lightning-out.herokuapp.com//proxy/' ;
  
 
 function prodLogin()

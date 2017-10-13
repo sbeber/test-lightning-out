@@ -53,7 +53,7 @@ if(!$.cookie("AccToken"))
 
 
 function setupLightning(callback) {
-	var appName = "c:LightningOutDemo";
+	var appName = "Xeo_PC_IO:pastTimesContactApplication";
 	 
 
 	if (_lightningReady) {
@@ -78,7 +78,7 @@ function setupLightning(callback) {
 
 function createChatterFeed(type, subjectId) {
     setupLightning(function() {
-		$Lightning.createComponent("forceChatter:fullFeed", {type: type, subjectId: subjectId}, "lexcontainer"); 
+		$Lightning.createComponent("Xeo_PC_IO:visualForceWrapperPastTimesContact", {contactId : "0030Y000008OMTf", UserContext: ''}, "lexcontainer"); 
     });
 }
 

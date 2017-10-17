@@ -67,7 +67,7 @@ function oauthAutoConnect(){
 	    '&password='+password+securityToken;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', '/getToken');
+	xhr.open('POST', 'https://test-lightning-out.herokuapp.com/getToken');
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	
 	/*xhr.setRequestHeader('Access-Control-Allow-Origin', '*');

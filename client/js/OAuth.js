@@ -67,7 +67,7 @@ function oauthAutoConnect(){
 	    '&password='+password+securityToken;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https://login.salesforce.com/services/oauth2/token'/*,/*true*/);
+	xhr.open('POST', 'https://login.salesforce.com/services/oauth2/token',true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	
 	/*xhr.setRequestHeader('Access-Control-Allow-Origin', '*');

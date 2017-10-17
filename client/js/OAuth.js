@@ -60,15 +60,9 @@ function popupCenter(url, title, w, h) {
 }
 
 function oauthAutoConnect(){
-	var body = 'grant_type=password'+
-	    '&client_id='+clientId+
-	    '&client_secret='+client_secret+
-	    '&username='+username+
-	    '&password='+password+securityToken;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https://test-lightning-out.herokuapp.com/getToken');
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.open('GET', 'https://test-lightning-out.herokuapp.com/getToken');
 	
 	/*xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 	xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization,X-Authorization'); 
@@ -80,7 +74,7 @@ function oauthAutoConnect(){
         xhr.setRequestHeader("Access-Control-Allow-Methods", "POST");
         xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Range, Content-Disposition, Content-Description");
 	*/
-	xhr.send(body);
+	xhr.send();
 	
 	xhr.addEventListener('readystatechange', function() {
   		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {

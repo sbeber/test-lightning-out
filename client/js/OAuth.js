@@ -21,7 +21,7 @@ function prodLogin()
 
 function sandLogin()
 {
-    loginUrl = 'https://trailhead-sbeber-dev-ed.my.salesforce.com/';
+    loginUrl = 'https://login.salesforce.com/';
     /*login();*/
 	oauthAutoConnect();
 }
@@ -67,10 +67,10 @@ function oauthAutoConnect(){
 	    '&password='+password+securityToken;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https://trailhead-sbeber-dev-ed.my.salesforce.com/services/oauth2/token',true);
+	xhr.open('POST', 'https://login.salesforce.com/services/oauth2/token'/*,/*true*/);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	
-	xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+	/*xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 	xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization,X-Authorization'); 
 	xhr.setRequestHeader('Access-Control-Allow-Methods', '*');
 	xhr.setRequestHeader('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');

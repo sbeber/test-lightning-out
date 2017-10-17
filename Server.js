@@ -77,7 +77,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 		}
 	};
 
-	/*var salesForceReq = https.request(salesForceOptions, (salesForceRes) => {
+	var salesForceReq = https.request(salesForceOptions, (salesForceRes) => {
 		console.log('STATUS: ${salesForceRes.statusCode}');
 		console.log('HEADERS: ${JSON.stringify(salesForceRes.headers)}');
 		salesForceRes.setEncoding('utf8');
@@ -88,7 +88,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 		salesForceRes.on('end', () => {
 			console.log('No more data in response.');
 		});
-		});
+	});
 
 	/*salesForceReq.on('error', (e) => {
 		console.error('problem with request: ${e.message}');

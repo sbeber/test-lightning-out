@@ -70,10 +70,8 @@ function oauthAutoConnect(){
 	xhr.open('POST', loginUrl + 'services/oauth2/token',true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	
-	xhr.addEventListener('readystatechange', function() {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			console.log(xhr.responseText);
-		}
+	xhr.onload(function() {
+		console.log(xhr.responseText);
 	});
 	
 	xhr.send(body);

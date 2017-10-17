@@ -54,7 +54,7 @@ app.get('/Main*' ,   function(req,res,next) {
     res.sendfile('views/Main.html');
 } );
 
-app.get('/getToken' ,   function(req,res,next) {
+app.get('/getToken*' ,   function(req,res,next) {
     res.redirect('https://login.salesforce.com/services/oauth2/token');
 } );
  

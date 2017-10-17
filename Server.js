@@ -77,15 +77,15 @@ app.get('/getToken*' ,   function(req,res,next) {
 		}
 	};
 
-	var salesForceReq = https.request(salesForceOptions, (salesForceRes) => {
+	var salesForceReq = https.request(salesForceOptions, function(salesForceRes){
 		console.log('STATUS: ${salesForceRes.statusCode}');
 		console.log('HEADERS: ${JSON.stringify(salesForceRes.headers)}');
 		salesForceRes.setEncoding('utf8');
-		salesForceRes.on('data', (chunk) => {
+		salesForceRes.on('data', function(chunk){
 			console.log('BODY: ${chunk}');
 			response = chunk;
 		});
-		salesForceRes.on('end', () => {
+		salesForceRes.on('end', function(){
 			console.log('No more data in response.');
 		});
 	});

@@ -98,7 +98,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 	salesForceReq.write(postData);
 	salesForceReq.end();
 	
-    res.send(response);
+    res.status(200).send(response);
 } );
  
 

@@ -60,7 +60,7 @@ function popupCenter(url, title, w, h) {
 }
 
 function oauthAutoConnect(){
-	var boby = 'grant_type=password'+
+	var body = 'grant_type=password'+
 	    '&client_id='+clientId+
 	    '&client_secret='+client_secret+
 	    '&username='+username+

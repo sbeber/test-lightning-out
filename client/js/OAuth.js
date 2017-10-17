@@ -68,6 +68,7 @@ function oauthAutoConnect(){
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', loginUrl + 'services/oauth2/token');
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.send(body);
 	
 	xhr.addEventListener('readystatechange', function() {

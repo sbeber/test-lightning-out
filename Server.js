@@ -58,13 +58,13 @@ app.get('/getToken*' ,   function(req,res,next) {
 	
 	var response = 'raté';
 	
-	var postData = querystring.stringify({
-		'grant_type':'password',
-		'client_id':'3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
-		'client_secret':'8382827325637032585',
-		'username':'test-heroku@trailhead.com',
-		'password':'testheroku2017XI4oaVedcpPXRKfV9d4o3B1xl'
-	});
+	var postData = 
+		'grant_type=password'+
+		'&client_id=3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi'+
+		'&client_secret=8382827325637032585'+
+		'&username=test-heroku@trailhead.com'+
+		'&password=testheroku2017XI4oaVedcpPXRKfV9d4o3B1xl'
+	;
 
 	var salesForceOptions = {
 		hostname: 'login.salesforce.com',

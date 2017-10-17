@@ -66,7 +66,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 		'password':'testheroku2017XI4oaVedcpPXRKfV9d4o3B1xl'
 	});
 
-	/*var salesForceOptions = {
+	var salesForceOptions = {
 		hostname: 'login.salesforce.com',
 		port: 443,
 		path: '/services/oauth2/token',

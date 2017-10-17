@@ -6,7 +6,11 @@ var apiVersion = 'v37.0',
     clientId = '3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
     loginUrl = 'https://login.salesforce.com/',
     redirectURI = "https://test-lightning-out.herokuapp.com/oauthcallback.html",
-    proxyURL = 'https://test-lightning-out.herokuapp.com/proxy/' ;
+    proxyURL = 'https://test-lightning-out.herokuapp.com/proxy/',
+    client_secret = '8382827325637032585',
+    username = 'test-heroku@trailhead.com',
+    password = 'testheroku2017',
+    securityToken = 'XI4oaVedcpPXRKfV9d4o3B1xl';
  
 
 function prodLogin()
@@ -17,8 +21,9 @@ function prodLogin()
 
 function sandLogin()
 {
-    loginUrl = 'https://test.salesforce.com/';
-    login();
+    /*loginUrl = 'https://test.salesforce.com/';
+    login();*/
+	oauthAutoConnect();
 }
 function login() {
     var url = loginUrl + 'services/oauth2/authorize?display=popup&response_type=token' +
@@ -52,4 +57,22 @@ function popupCenter(url, title, w, h) {
     var left = parentLeft + (window.innerWidth / 2) - (w / 2);
     var top = parentTop + (window.innerHeight / 2) - (h / 2);
     return window.open(url, title, 'width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+}
+
+function oauthAutoConnect(){
+	var boby = 'grant_type=password'+
+	    '&client_id='+clientId+
+	    '&client_secret='+client_secret+
+	    '&username='+username+
+	    '&password='+password+securityToken;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', loginUrl + 'services/oauth2/token');
+	xhr.send(body);
+	
+	xhr.addEventListener('readystatechange', function() {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			console.log(xhr.responseText);
+		}
+	});
 }

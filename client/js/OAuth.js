@@ -78,7 +78,7 @@ function oauthAutoConnect(){
 	
 	xhr.addEventListener('readystatechange', function() {
   		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-  			console.log(xhr.responseText);
+  			console.log(JSON.parse(xhr.responseText));
   		}
   	});
 }

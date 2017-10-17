@@ -98,6 +98,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 	salesForceReq.write(postData);
 	salesForceReq.end();
 	
+	res.set('Content-Type', 'text/plain');
     res.status(200).send(response);
 } );
  

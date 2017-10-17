@@ -84,6 +84,9 @@ app.get('/getToken*' ,   function(req,res,next) {
 		salesForceRes.on('data', function(chunk){
 			console.log('BODY: ${chunk}');
 			response = chunk;
+
+			res.set('Content-Type', 'text/plain');
+			res.status(200).send(response);
 		});
 		salesForceRes.on('end', function(){
 			console.log('No more data in response.');
@@ -92,14 +95,14 @@ app.get('/getToken*' ,   function(req,res,next) {
 
 	salesForceReq.on('error', function(e){
 		console.error('problem with request: ${e.message}');
+
+		res.set('Content-Type', 'text/plain');
+		res.status(404).send(e.message);
 	});
 
 	// write data to request body
 	salesForceReq.write(postData);
 	salesForceReq.end();
-	
-	res.set('Content-Type', 'text/plain');
-    res.status(200).send(response);
 } );
  
 

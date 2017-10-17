@@ -54,7 +54,7 @@ app.get('/Main*' ,   function(req,res,next) {
     res.sendfile('views/Main.html');
 } );
 
-app.get('/getToken*' ,   function(req,res,next) {
+/*app.get('/getToken*' ,   function(req,res,next) {
 	var postData = querystring.stringify({
 		'grant_type':'password',
 		'client_id':'3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
@@ -98,7 +98,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 	salesForceReq.end();
 	
     res.send(response);
-} );
+} );*/
  
 
 app.listen(app.get('port'), function () {

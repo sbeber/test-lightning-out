@@ -21,8 +21,8 @@ function prodLogin()
 
 function sandLogin()
 {
-    /*loginUrl = 'https://test.salesforce.com/';
-    login();*/
+    loginUrl = 'https://trailhead-sbeber-dev-ed.my.salesforce.com/';
+    /*login();*/
 	oauthAutoConnect();
 }
 function login() {
@@ -70,10 +70,10 @@ function oauthAutoConnect(){
 	xhr.open('POST', loginUrl + 'services/oauth2/token',true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	
-	xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+	/*xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
         xhr.setRequestHeader("Access-Control-Allow-Methods", "POST");
         xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Range, Content-Disposition, Content-Description");
-	
+	*/
 	xhr.send(body);
 	
 	xhr.addEventListener('readystatechange', function() {

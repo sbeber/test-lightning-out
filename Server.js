@@ -85,7 +85,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 			console.log('BODY: ${chunk}');
 			response = chunk;
 
-			res.set('Content-Type', 'text/plain');
+			res.type('json');
 			res.status(200).send(response);
 		});
 		salesForceRes.on('end', function(){

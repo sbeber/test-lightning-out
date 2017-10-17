@@ -58,7 +58,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 	
 	var response = 'raté';
 	
-	/*var postData = querystring.stringify({
+	var postData = querystring.stringify({
 		'grant_type':'password',
 		'client_id':'3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
 		'client_secret':'8382827325637032585',
@@ -66,7 +66,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 		'password':'testheroku2017XI4oaVedcpPXRKfV9d4o3B1xl'
 	});
 
-	var salesForceOptions = {
+	/*var salesForceOptions = {
 		hostname: 'login.salesforce.com',
 		port: 443,
 		path: '/services/oauth2/token',
@@ -77,7 +77,7 @@ app.get('/getToken*' ,   function(req,res,next) {
 		}
 	};
 
-	var salesForceReq = https.request(salesForceOptions, (salesForceRes) => {
+	/*var salesForceReq = https.request(salesForceOptions, (salesForceRes) => {
 		console.log('STATUS: ${salesForceRes.statusCode}');
 		console.log('HEADERS: ${JSON.stringify(salesForceRes.headers)}');
 		salesForceRes.setEncoding('utf8');
@@ -90,13 +90,13 @@ app.get('/getToken*' ,   function(req,res,next) {
 		});
 		});
 
-	salesForceReq.on('error', (e) => {
+	/*salesForceReq.on('error', (e) => {
 		console.error('problem with request: ${e.message}');
 	});
 
 	// write data to request body
-	salesForceReq.write(postData);
-	salesForceReq.end();*/
+	/*salesForceReq.write(postData);
+	/*salesForceReq.end();*/
 	
     res.send(response);
 } );

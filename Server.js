@@ -54,8 +54,11 @@ app.get('/Main*' ,   function(req,res,next) {
     res.sendfile('views/Main.html');
 } );
 
-/*app.get('/getToken*' ,   function(req,res,next) {
-	var postData = querystring.stringify({
+app.get('/getToken*' ,   function(req,res,next) {
+	
+	var response = 'raté';
+	
+	/*var postData = querystring.stringify({
 		'grant_type':'password',
 		'client_id':'3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
 		'client_secret':'8382827325637032585',
@@ -73,8 +76,6 @@ app.get('/Main*' ,   function(req,res,next) {
 			'Content-Length': Buffer.byteLength(postData)
 		}
 	};
-	
-	var response = '';
 
 	var salesForceReq = https.request(salesForceOptions, (salesForceRes) => {
 		console.log('STATUS: ${salesForceRes.statusCode}');
@@ -95,10 +96,10 @@ app.get('/Main*' ,   function(req,res,next) {
 
 	// write data to request body
 	salesForceReq.write(postData);
-	salesForceReq.end();
+	salesForceReq.end();*/
 	
     res.send(response);
-} );*/
+} );
  
 
 app.listen(app.get('port'), function () {

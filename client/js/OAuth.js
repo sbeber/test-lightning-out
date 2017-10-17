@@ -67,7 +67,7 @@ function oauthAutoConnect(){
 	    '&password='+password+securityToken;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', loginUrl + 'services/oauth2/token',true);
+	xhr.open('POST', 'https://trailhead-sbeber-dev-ed.my.salesforce.com/services/oauth2/token',true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	
 	/*xhr.setRequestHeader("Access-Control-Allow-Origin", "*");

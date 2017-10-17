@@ -90,13 +90,13 @@ app.get('/getToken*' ,   function(req,res,next) {
 		});
 	});
 
-	/*salesForceReq.on('error', (e) => {
+	salesForceReq.on('error', function(e){
 		console.error('problem with request: ${e.message}');
 	});
 
 	// write data to request body
-	/*salesForceReq.write(postData);
-	/*salesForceReq.end();*/
+	salesForceReq.write(postData);
+	salesForceReq.end();
 	
     res.send(response);
 } );

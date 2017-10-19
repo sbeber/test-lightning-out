@@ -6,11 +6,7 @@ var apiVersion = 'v37.0',
     clientId = '3MVG9HxRZv05HarR6hEBmResOSDNQ8hxeeVCWsFd8VSq4CN.HOyNwSj.mx5aFxT4l4viX.gplw1dR1EQ8TCgi',
     loginUrl = 'https://login.salesforce.com/',
     redirectURI = "https://test-lightning-out.herokuapp.com/oauthcallback.html",
-    proxyURL = 'https://test-lightning-out.herokuapp.com/proxy/',
-    client_secret = '8382827325637032585',
-    username = 'test-heroku@trailhead.com',
-    password = 'testheroku2017',
-    securityToken = 'XI4oaVedcpPXRKfV9d4o3B1xl';
+    proxyURL = 'https://test-lightning-out.herokuapp.com/proxy/';
  
 
 function prodLogin()
@@ -43,12 +39,28 @@ function oauthCallback(response) {
 		strngBrks = response.id.split('/');
 		$.cookie("LoggeduserId",  strngBrks[strngBrks.length - 1]) ;
 		
+        oauthAutoConnect();
+    } else {
+        alert("AuthenticationError: No Token");
+    }
+}
+
+function oauthCallback2(response) {
+    if (response && response.access_token) { 
+        console.log(response);
+        $.cookie("AccToken2",response.access_token ) ;
+        $.cookie("APIVer2", apiVersion) ;
+        $.cookie("InstURL2",  response.instance_url) ; 
+        $.cookie("idURL2",  response.id) ;
+        
+		strngBrks = response.id.split('/');
+		$.cookie("LoggeduserId2",  strngBrks[strngBrks.length - 1]) ;
+		
         window.location = 'Main';
     } else {
         alert("AuthenticationError: No Token");
     }
 }
- 
 
 function popupCenter(url, title, w, h) {
     // Handles dual monitor setups
@@ -63,23 +75,11 @@ function oauthAutoConnect(){
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'https://test-lightning-out.herokuapp.com/getToken');
-	
-	/*xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-	xhr.setRequestHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization,X-Authorization'); 
-	xhr.setRequestHeader('Access-Control-Allow-Methods', '*');
-	xhr.setRequestHeader('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');
-	xhr.setRequestHeader('Access-Control-Max-Age', '1000');
-	
-	/*xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xhr.setRequestHeader("Access-Control-Allow-Methods", "POST");
-        xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Range, Content-Disposition, Content-Description");
-	*/
 	xhr.send();
 	
 	xhr.addEventListener('readystatechange', function() {
   		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-  			console.log(JSON.parse(xhr.responseText));
-			oauthCallback(JSON.parse(xhr.responseText));
+			oauthCallback2(JSON.parse(xhr.responseText));
   		}
   	});
 }

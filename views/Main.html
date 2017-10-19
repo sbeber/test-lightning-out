@@ -32,6 +32,9 @@
       </div>
     </nav> 
 
+	<div id="pastTimes"> 
+	</div>
+
 	<div id="lexcontainer"> 
 	</div>
   
@@ -48,11 +51,12 @@ if(!$.cookie("AccToken"))
     alert("Login to Salesforce First!!!");
 }else{
 	createChatterFeed('NEWS');
+	createPastTimes();
 }
 
 
 
-function setupLightning(callback) {
+function setupLightningPastTime(callback) {
 	var appName = "Xeo_PC_IO:pastTimesContactApplication";
 	 
 
@@ -62,25 +66,55 @@ function setupLightning(callback) {
 		}
 	} else {
 	    // Transform the URL for Lightning
-	    var url = $.cookie("InstURL");
+	    var url = $.cookie("InstURL2");
 		url = url.replace("my.salesforce", "lightning.force");
 
 	    $Lightning.use(appName, 
 	        function() {
 				_lightningReady = true;
-				document.getElementById("lexcontainer").style.display = "";
+				document.getElementById("pastTimes").style.display = "";
 				if (typeof callback === "function") {
 					callback();
 				}
-	        }, url, $.cookie("AccToken"));
+	        }, url, $.cookie("AccToken2"));
 	}
 }
 
-function createChatterFeed(type, subjectId) {
-    setupLightning(function() {
+function createPastTimes() {
+    setupLightningPastTime(function() {
 		$Lightning.createComponent("Xeo_PC_IO:visualForceWrapperPastTimesContact", {contactId : "0030Y000008OMTf", UserContext: ''}, "lexcontainer"); 
     });
 }
+	
+function setupLightning(callback) {
+ 	var appName = "c:LightningOutDemo";
+ 	 
+ 
+ 	if (_lightningReady) {
+ 		if (typeof callback === "function") {
+ 			callback();
+ 		}
+ 	} else {
+ 	    // Transform the URL for Lightning
+ 	    var url = $.cookie("InstURL");
+ 		url = url.replace("my.salesforce", "lightning.force");
+ 
+ 	    $Lightning.use(appName, 
+ 	        function() {
+ 				_lightningReady = true;
+ 				document.getElementById("lexcontainer").style.display = "";
+ 				if (typeof callback === "function") {
+ 					callback();
+ 				}
+ 	        }, url, $.cookie("AccToken"));
+ 	}
+ }
+ 
+ function createChatterFeed(type, subjectId) {
+     setupLightning(function() {
+ 		$Lightning.createComponent("forceChatter:feed", {type: type, subjectId: subjectId}, "lexcontainer"); 
+     });
+ }
 
 </script>
 
